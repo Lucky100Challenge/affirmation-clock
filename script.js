@@ -2,16 +2,18 @@
 const clockElement = document.getElementById('clock');
 const affirmationElement = document.getElementById('affirmation');
 
-async function fetchAffirmation() {
-    try {
-        const response = await fetch('https://www.affirmations.dev/');
-        const data = await response.json();
-        return data.affirmation;
-    } catch (error) {
-        console.error('Error fetching affirmation:', error);
-        return 'Stay positive and keep going!';
-    }
-}
+const affirmations = [
+    "You are capable of amazing things.",
+    "Believe in yourself and all that you are.",
+    "Every day is a second chance.",
+    "You are stronger than you think.",
+    "Positivity is a choice.",
+    "You are enough just as you are.",
+    "Your potential is limitless.",
+    "Great things never come from comfort zones.",
+    "Believe you can and you're halfway there.",
+    "You are doing the best you can.",
+];
 
 function updateClock() {
     const now = new Date();
@@ -21,12 +23,13 @@ function updateClock() {
     clockElement.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    // Fetch and display the affirmation
-    const affirmation = await fetchAffirmation();
-    affirmationElement.textContent = affirmation;
-    
-    // Update the clock every second
+function showAffirmation() {
+    const randomIndex = Math.floor(Math.random() * affirmations.length);
+    affirmationElement.textContent = affirmations[randomIndex];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showAffirmation();
     updateClock();
-    setInterval(updateClock, 1000);
+    setInterval(updateClock, 1000); // Update the clock every second
 });
