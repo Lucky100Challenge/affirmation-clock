@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalistic Clock with Affirmations</title>
+    <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .clock {
             font-size: 4rem;
             font-weight: bold;
-            color: #333;
         }
         .affirmation {
             font-size: 1.5rem;
             font-weight: normal;
-            color: #555;
+            color: gray;
             margin-bottom: 1rem;
         }
     </style>
 </head>
-<body class="bg-white flex flex-col items-center justify-center h-screen">
+<body class="bg-white flex items-center justify-center h-screen">
     <div class="text-center">
         <div id="affirmation" class="affirmation"></div>
-        <div id="clock" class="clock"></div>
+        <div id="clock" class="clock text-gray-800"></div>
     </div>
     <script src="script.js"></script>
 </body>
